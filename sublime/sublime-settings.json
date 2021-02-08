@@ -1,0 +1,43 @@
+{
+	"color_scheme": "Packages/Theme - Gravity/One Dark Gravity.tmTheme",
+	"file_exclude_patterns":
+	[
+		".*",
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace"
+	],
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		".*"
+	],
+	"font_size": 19,
+	"gravity_highlight_color_blue": true,
+	"gravity_title_bar": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Gravity One.sublime-theme"
+}
