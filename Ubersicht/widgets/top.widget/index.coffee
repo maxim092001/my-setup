@@ -1,5 +1,12 @@
-command: "./top.widget/script.sh | awk '{print $4, $10, $1, $2 \"<br>\"}'"
-
+command: "./top.widget/script.sh | awk '{
+  print 
+  \"<tr>\"
+  \"<th>\"$4\"</th>\",
+  \"<th>\"$10\"</th>\",
+  \"<th>\"$1\"</th>\",
+  \"<th>\"$2\"</th>\"
+   \"</tr>\"
+}'"
 refreshFrequency: 1000
 
 style: """
@@ -16,8 +23,12 @@ style: """
 """
 
 render: -> """
-  <div class='top'></div>
+  <div class='top'>
+    <table class='table'>
+
+    </table>
+  </div>
 """
 
 update: (output, domEl) ->
-  $(domEl).find('.top').html(output)
+  $(domEl).find('.table').html(output)
