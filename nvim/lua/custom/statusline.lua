@@ -13,7 +13,7 @@ local function err_count(severity)
 end
 
 local function get_branch()
-  local name = vim.api.nvim_call_function("fugitive#head", {})
+  local name = vim.api.nvim_call_function("FugitiveHead", {})
   if name and name ~= "" then
     return "  " .. name .. " "
   else
