@@ -1,6 +1,0 @@
-{
-	"metals.statusBarEnabled": true,
-	"metals.scalafmtConfigPath": "project/.scalafmt.conf",
-	"coc.preferences.formatOnSaveFiletypes": ["scala", "java", "sbt"],
-	"metals.scalafixConfigPath": "project/.scalafix.conf"
-}

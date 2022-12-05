@@ -1,73 +1,41 @@
-require'plugins'
+require("globals")
 
-require('lspsaga').init_lsp_saga()
+require("plugins")
 
-require("tmux").setup()
+-- require("themer-cfg")
 
--- require("transparent").setup({
-	-- enable = true
--- })
+require("onedark-cfg")
 
-require("trouble").setup({
- auto_open = true
-})
+require("telescope")
 
-require("lsp-colors").setup({})
+require("which-key-cfg")
 
--- Which key
-require"which-key-config"
---
--- -- Git signs
-require'gitsigns-config'
+require("tabs-cfg")
 
--- Rust
-require('rust-tools').setup({})
+require("nvim-tree-cfg")
 
--- Comments
-require('Comment').setup()
+require("comment-cfg")
 
--- Tabs mappings
-require'tabs-config'
+require("lspconfig-cfg")
 
--- Terminal
-require("toggleterm").setup{
-	open_mapping = [[<c-\>]]
-}
+require("lsp-mappings-cfg")
 
--- Completion
-require'cmp-config'
+require("lsp-colors-cfg")
 
--- Lsp mappings
-require'lsp_mappings-config'
+require("treesitter-cfg")
 
--- Metals config
-require'metals-config'
+require("neoformat-cfg")
 
--- Theme
--- require('nightfox').load('nordfox')
-require'themer-config'
+require("cmp-cfg")
 
--- Status line
-require('lualine').setup {
-	options = {
-		theme = "gruvbox"
-	}
-}
--- require'statusline'
+require("trouble-cfg")
 
--- opt.statusline = "%!luaeval('Super_custom_status_line()')"
+require("lualine-cfg")
 
-require'language_servers-config'
+require("toggleterm-cfg")
 
--- Dap config
-require'dap-config'
+require("metals-cfg")
 
--- Treesitter
+require("nvim-autopairs-cfg")
 
-require'treesitter-config'
-
--- Telescope
-require'telescope-config'
-
--- Globals
-require'globals'
+require("symbols-cfg")

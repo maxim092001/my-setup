@@ -1,110 +1,105 @@
 local cmd = vim.cmd
-cmd('packadd packer.nvim')
-local packer = require('packer')
+
+cmd("packadd packer.nvim")
+
+local packer = require("packer")
 
 packer.startup(function(use)
-
-	use { 'wbthomason/packer.nvim', opt = true }
-	use { 'neovim/nvim-lspconfig' }
-	use { "tami5/lspsaga.nvim" }
-	use { 'neoclide/coc.nvim', branch = 'release', run = 'yarn install --frozen-lockfile'}
-	use { 'nvim-lua/plenary.nvim' }
-	use { 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" }}
-
-
-	-- Markdown preview
-	use{ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, }
-
-	use { 'mfussenegger/nvim-dap' }
-
-	use { 'hrsh7th/nvim-cmp', requires = {{'hrsh7th/vim-vsnip'}}}
-	use { 'hrsh7th/cmp-vsnip' }
-	use { 'hrsh7th/cmp-nvim-lsp' }
-	-- use { 'hrsh7th/cmp-buffer' }
-	use { 'hrsh7th/cmp-cmdline' }
-	use { "hrsh7th/cmp-path" }
-
-	-- Navigation
-	use { 'majutsushi/tagbar' }
-	use { 'nvim-telescope/telescope.nvim', requires = { {'nvim-lua/plenary.nvim'} } }
-	use {'junegunn/fzf.vim'}
-
-	-- Some shit for statusline
-	use { "tpope/vim-fugitive" }
-	use { "tpope/vim-vinegar" }
-
-	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	-- Packer
+	use({ "wbthomason/packer.nvim", opt = true })
 
 	-- Themer
-	use { "themercorp/themer.lua" }
-	--
-
-	-- Terminal
-	use { "akinsho/toggleterm.nvim" }
-
-
-	-- Tabs
-	use {
-		'romgrk/barbar.nvim',
-		requires = {'kyazdani42/nvim-web-devicons'}
-	}
-
-	use { 'folke/lsp-colors.nvim' }
+	use({ "themercorp/themer.lua" })
 
 	-- Tree
-	use {
-		'kyazdani42/nvim-tree.lua',
+	use({
+		"kyazdani42/nvim-tree.lua",
 		requires = {
-			'kyazdani42/nvim-web-devicons', -- optional, for file icon
+			"kyazdani42/nvim-web-devicons",
 		},
-		config = function() require'nvim-tree'.setup {} end
-	}
+	})
 
-	-- Search
-	use { 'ggandor/lightspeed.nvim' }
+	-- Plenary, used for async plugins such as telescope
+	use({ "nvim-lua/plenary.nvim" })
+
+	-- Telescope
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	})
+
+	-- Tagbar to show tags in file
+	use({ "majutsushi/tagbar" })
+
+	-- FZF - fuzzy finder
+	use({ "junegunn/fzf.vim" })
+
+	-- Terminal
+	use({ "akinsho/toggleterm.nvim" })
+
+	-- Tabs
+	use({
+		"romgrk/barbar.nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
+
+	-- Easy to use search
+	use({ "ggandor/lightspeed.nvim" })
+
+	-- Which key hints
+	use({ "folke/which-key.nvim" })
 
 	-- Comments
-	use { 'numToStr/Comment.nvim' }
-	--
-	-- Git
-	use {
-	'lewis6991/gitsigns.nvim',
-	requires = {
-		'nvim-lua/plenary.nvim'
-	},
-	tag = 'release' -- To use the latest release
- }
+	use({ "numToStr/Comment.nvim" })
 
-	-- Rust
-	use { 'simrat39/rust-tools.nvim' }
+	-- Lspconfig
+	use({ "neovim/nvim-lspconfig" })
 
+	-- Lspsaga
+	use({ "glepnir/lspsaga.nvim" })
 
-	-- Which key
-	use { "folke/which-key.nvim" }
+	-- Lsp colors
+	use({ "folke/lsp-colors.nvim" })
 
-	use {
+	-- Treesitter
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+
+	-- Formatters
+	use({ "sbdchd/neoformat" })
+
+	-- Completion
+	use({ "hrsh7th/nvim-cmp", requires = { { "hrsh7th/vim-vsnip" } } })
+	use({ "hrsh7th/cmp-vsnip" })
+	use({ "hrsh7th/cmp-cmdline" })
+	use({ "hrsh7th/cmp-path" })
+	use({ "hrsh7th/cmp-nvim-lsp" })
+
+	-- Lualine (pretty statusline)
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	-- Pretty troubles
+	use({
 		"folke/trouble.nvim",
-		requires = "kyazdani42/nvim-web-devicons",
-	}
+		requires = { "kyazdani42/nvim-web-devicons" },
+	})
 
-	use { "xiyaowong/nvim-transparent" }
+	-- Ocaml
+	use({ "jubnzv/virtual-types.nvim" })
 
-	use { "junegunn/goyo.vim" }
+	-- Scala
+	use({ "scalameta/nvim-metals", requires = { "nvim-lua/plenary.nvim" } })
 
-	use { "aserowy/tmux.nvim" }
+	-- Parentheses completion
+	use({ "windwp/nvim-autopairs" })
 
-	use { 'ocaml/vim-ocaml' }
+	-- Symbols
+	use({ "simrat39/symbols-outline.nvim" })
 
-	use { 'jubnzv/virtual-types.nvim' }
-
-	use { 'masukomi/vim-markdown-folding' }
-
-	use { 'tpope/vim-markdown' }
-
-	use { "sumneko/lua-language-server" }
-
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	-- Onedark theme
+	use({ "navarasu/onedark.nvim" })
 end)
