@@ -1,10 +1,11 @@
 require("toggleterm").setup({
-	open_mapping = [[<c-\>]],
+	open_mapping = [[<C-T>]],
 })
 
 local map = require("map").map
 
 map("n", "<leader>tf", [[<cmd>ToggleTerm direction=float<cr>]], { silent = true })
+map("n", "<leader>ltf", [[<cmd>Lspsaga term_toggle<cr>]], { silent = true })
 
 -- Lazygit integration
 

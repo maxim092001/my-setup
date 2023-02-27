@@ -4,6 +4,13 @@ cmd("packadd packer.nvim")
 
 local packer = require("packer")
 
+vim.cmd([[ 
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost lua/plugins/init.lua source <afile> | PackerSync
+  augroup end
+]])
+
 packer.startup(function(use)
 	-- Packer
 	use({ "wbthomason/packer.nvim", opt = true })
@@ -102,4 +109,68 @@ packer.startup(function(use)
 
 	-- Onedark theme
 	use({ "navarasu/onedark.nvim" })
+
+	-- Experimental noice
+	use({
+		"folke/noice.nvim",
+		requires = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
+	})
+
+	-- Commects for todo
+	use({
+		"folke/todo-comments.nvim",
+		requires = "nvim-lua/plenary.nvim",
+	})
+
+	-- Illuminate (mark under cursor)
+	use({
+		"RRethy/vim-illuminate",
+	})
+
+	-- Tokyonight theme
+	use({ "folke/tokyonight.nvim" })
+
+	-- spotify
+	use({
+		"KadoBOT/nvim-spotify",
+		requires = "nvim-telescope/telescope.nvim",
+		run = "make",
+	})
+
+	-- tmux navigation
+	use({
+		"christoomey/vim-tmux-navigator",
+	})
+
+	-- git signs
+	use({
+		"lewis6991/gitsigns.nvim",
+	})
+
+	-- Mason
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+	})
+
+	-- Latex
+	use({ "lervag/vimtex" })
+
+	-- Snippets
+	use({
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		tag = "v<CurrentMajor>.*",
+		-- install jsregexp (optional!:).
+		run = "make install_jsregexp",
+	})
+
+	use("rafamadriz/friendly-snippets")
 end)

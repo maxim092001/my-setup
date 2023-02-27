@@ -11,7 +11,7 @@ global_opt.showmatch = true
 global_opt.ignorecase = true
 global_opt.syntax = "on"
 global_opt.mouse = "a"
-global_opt.shortmess:remove("F"):append("c")
+-- global_opt.shortmess:remove("F"):append("c")
 
 vim["softtabstop"] = 2
 vim.o["shiftwidth"] = 2
